@@ -1,0 +1,253 @@
+/* ============================================================
+   Lahm & Loz — Homepage styles
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.ll-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 16px 3rem;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+.ll-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 2rem;
+  align-items: center;
+}
+.ll-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ll-white);
+  border: var(--ll-border);
+  border-radius: 999px;
+  padding: .4rem 1.1rem;
+  font-weight: 800;
+  font-size: .85rem;
+  color: var(--ll-green);
+  box-shadow: var(--ll-shadow);
+  margin-bottom: 1.2rem;
+}
+.ll-hero h1 {
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--ll-green);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.ll-hero h1 .accent { color: var(--ll-almond-deep); position: relative; white-space: nowrap; }
+.ll-hero-sub {
+  font-size: 1.15rem;
+  color: var(--ll-brown-soft);
+  font-weight: 600;
+  max-width: 34rem;
+  margin-bottom: 1.8rem;
+}
+.ll-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.ll-hero-stats { display: flex; gap: 18px; margin-top: 2rem; flex-wrap: wrap; }
+.ll-hero-stat {
+  background: var(--ll-white);
+  border-radius: var(--ll-radius-md);
+  border: var(--ll-border);
+  box-shadow: var(--ll-shadow);
+  padding: .7rem 1.2rem;
+  min-width: 120px;
+}
+.ll-hero-stat b { display: block; font-size: 1.35rem; color: var(--ll-green); font-weight: 900; }
+.ll-hero-stat span { font-size: .8rem; color: var(--ll-brown-soft); font-weight: 700; }
+
+.ll-hero-art {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ll-hero-art .plate {
+  width: min(100%, 420px);
+  filter: drop-shadow(0 24px 40px rgba(57, 41, 31, .22));
+  animation: llFloat 5s ease-in-out infinite;
+}
+.ll-hero-art .orbit {
+  position: absolute;
+  width: 74px;
+  filter: drop-shadow(0 10px 16px rgba(57, 41, 31, .2));
+}
+.ll-hero-art .orbit.o1 { top: 6%; inset-inline-start: 4%; animation: llFloat 4s ease-in-out infinite .2s; }
+.ll-hero-art .orbit.o2 { bottom: 10%; inset-inline-start: 0; animation: llFloat 4.6s ease-in-out infinite .8s; }
+.ll-hero-art .orbit.o3 { top: 16%; inset-inline-end: 2%; animation: llFloat 4.2s ease-in-out infinite .5s; }
+.ll-hero-art .orbit.o4 { bottom: 2%; inset-inline-end: 8%; animation: llFloat 5.2s ease-in-out infinite 1.1s; }
+
+/* ---------- Challenge banner ---------- */
+.ll-challenge-banner {
+  max-width: 1320px;
+  margin: 1rem auto 0;
+  padding-inline: 16px;
+}
+.ll-challenge-banner .inner {
+  background: linear-gradient(120deg, var(--ll-almond), var(--ll-almond-light));
+  border-radius: var(--ll-radius-xl);
+  padding: 1.2rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  box-shadow: var(--ll-shadow-lg);
+  border: 2px solid rgba(185, 132, 72, .4);
+}
+.ll-challenge-banner h3 { margin: 0; color: var(--ll-brown); font-size: 1.15rem; }
+
+/* ---------- Games grid ---------- */
+.ll-games-section { max-width: 1320px; margin: 1rem auto 0; padding-inline: 16px; }
+.ll-games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+.ll-game-card {
+  position: relative;
+  background: var(--ll-white);
+  border-radius: var(--ll-radius-xl);
+  border: var(--ll-border);
+  box-shadow: var(--ll-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .ll-game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ll-shadow-lg);
+  }
+  .ll-game-card:hover .ll-game-thumb svg { transform: scale(1.06) rotate(-1deg); }
+  .ll-game-card:hover .ll-game-play .btn-ll { background: var(--ll-almond); color: var(--ll-brown); }
+}
+.ll-game-card:active { transform: scale(.98); }
+.ll-game-thumb {
+  height: 168px;
+  background:
+    radial-gradient(340px 160px at 50% 0%, rgba(211, 160, 100, .18), transparent 70%),
+    linear-gradient(180deg, #FDFBF7, var(--ll-cream-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: var(--ll-border);
+  overflow: hidden;
+}
+.ll-game-thumb svg { width: 150px; height: 120px; transition: transform .3s ease; }
+.ll-game-body { padding: 1.15rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+.ll-game-body h3 { font-size: 1.12rem; font-weight: 900; color: var(--ll-brown); margin: 0; }
+.ll-game-body p { font-size: .87rem; color: var(--ll-brown-soft); margin: 0; flex: 1; font-weight: 600; }
+.ll-game-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.ll-game-meta .time { font-size: .76rem; font-weight: 800; color: var(--ll-brown-soft); display: inline-flex; align-items: center; gap: 5px; }
+.ll-game-meta .time svg { width: 14px; height: 14px; }
+.ll-game-play { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: .3rem; }
+.ll-game-play .btn-ll { padding: .5rem 1.4rem; min-height: 44px; font-size: .92rem; }
+
+/* ---------- About experience ---------- */
+.ll-about { max-width: 1320px; margin: 3.5rem auto 0; padding-inline: 16px; }
+.ll-about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.ll-about-card { text-align: center; padding: 1.8rem 1.2rem; }
+.ll-about-card .icon {
+  width: 74px; height: 74px;
+  margin: 0 auto .9rem;
+  border-radius: 22px;
+  background: linear-gradient(140deg, var(--ll-cream), var(--ll-almond-light));
+  display: flex; align-items: center; justify-content: center;
+  border: var(--ll-border);
+}
+.ll-about-card .icon svg { width: 40px; height: 40px; }
+.ll-about-card h3 { font-size: 1.05rem; color: var(--ll-green); margin-bottom: .4rem; }
+.ll-about-card p { font-size: .88rem; color: var(--ll-brown-soft); margin: 0; font-weight: 600; }
+
+/* ---------- Branch CTA ---------- */
+.ll-branch { max-width: 1320px; margin: 3.5rem auto 0; padding-inline: 16px; }
+.ll-branch-inner {
+  background:
+    radial-gradient(600px 300px at 85% 20%, rgba(211, 160, 100, .25), transparent 60%),
+    linear-gradient(120deg, var(--ll-green), var(--ll-green-deep));
+  color: var(--ll-cream);
+  border-radius: var(--ll-radius-xl);
+  box-shadow: var(--ll-shadow-lg);
+  padding: 2.4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+.ll-branch-inner h2 { color: var(--ll-white); font-size: 1.7rem; margin-bottom: .5rem; }
+.ll-branch-inner p { margin: 0; opacity: .92; font-weight: 600; max-width: 38rem; }
+.ll-branch-inner .ll-branch-pin { color: var(--ll-almond); font-weight: 800; }
+
+/* ---------- Leaderboard + QR ---------- */
+.ll-lb-section { max-width: 1320px; margin: 3.5rem auto 0; padding-inline: 16px; }
+.ll-lb-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 22px; align-items: start; }
+.ll-lb-table { width: 100%; border-collapse: collapse; }
+.ll-lb-table th, .ll-lb-table td { padding: .6rem .8rem; text-align: start; font-size: .92rem; }
+.ll-lb-table th { color: var(--ll-brown-soft); font-size: .76rem; text-transform: uppercase; letter-spacing: .5px; border-bottom: 2px solid rgba(57, 41, 31, .1); }
+.ll-lb-table td { border-bottom: 1px dashed rgba(57, 41, 31, .12); font-weight: 700; }
+.ll-lb-table tr:last-child td { border-bottom: none; }
+.ll-lb-table .rank { font-weight: 900; color: var(--ll-almond-deep); width: 40px; }
+.ll-lb-table .score-val { font-weight: 900; color: var(--ll-green); }
+.ll-lb-note { font-size: .78rem; color: var(--ll-brown-soft); margin: .8rem 0 0; font-weight: 600; }
+.ll-lb-empty { color: var(--ll-brown-soft); font-weight: 700; padding: 1rem 0; }
+.ll-history-list { list-style: none; margin: .5rem 0 0; padding: 0; max-height: 210px; overflow-y: auto; }
+.ll-history-list li {
+  display: flex; justify-content: space-between; gap: 10px;
+  padding: .45rem .6rem; border-radius: 10px;
+  font-size: .85rem; font-weight: 700;
+}
+.ll-history-list li:nth-child(even) { background: var(--ll-cream); }
+
+.ll-qr-card { text-align: center; }
+.ll-qr-card .qr-holder {
+  width: 200px; height: 200px;
+  margin: 1rem auto;
+  background: var(--ll-white);
+  border-radius: var(--ll-radius-md);
+  border: var(--ll-border);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.ll-qr-card .qr-holder img, .ll-qr-card .qr-holder canvas { max-width: 180px; max-height: 180px; }
+.ll-qr-card .url { font-size: .8rem; color: var(--ll-brown-soft); word-break: break-all; font-weight: 700; }
+
+/* ---------- Kiosk toggle banner on home ---------- */
+.ll-kiosk-note {
+  max-width: 1320px; margin: 2rem auto 0; padding-inline: 16px;
+}
+.ll-kiosk-note .inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  background: var(--ll-white); border-radius: var(--ll-radius-xl);
+  border: 2px dashed rgba(22, 75, 42, .3);
+  padding: 1.1rem 1.5rem;
+}
+.ll-kiosk-note p { margin: 0; font-weight: 700; color: var(--ll-brown-soft); font-size: .92rem; }
+
+@media (max-width: 991.98px) {
+  .ll-hero-grid { grid-template-columns: 1fr; }
+  .ll-hero-art { min-height: 280px; order: -1; }
+  .ll-hero-art .plate { width: min(80%, 340px); }
+  .ll-lb-grid { grid-template-columns: 1fr; }
+  .ll-branch-inner { grid-template-columns: 1fr; text-align: center; }
+  .ll-branch-inner .d-flex { justify-content: center; }
+}
+
+/* Kiosk home tweaks */
+body.ll-kiosk .ll-hero { padding-top: 2rem; }
+body.ll-kiosk .ll-hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); }
+body.ll-kiosk .ll-hero-art,
+body.ll-kiosk .ll-about,
+body.ll-kiosk .ll-kiosk-note,
+body.ll-kiosk .ll-challenge-banner .info-note { display: none; }
+body.ll-kiosk .ll-games-grid { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 26px; }
+body.ll-kiosk .ll-game-thumb { height: 220px; }
+body.ll-kiosk .ll-game-body h3 { font-size: 1.4rem; }
+body.ll-kiosk .ll-game-body p { font-size: 1rem; }
+body.ll-kiosk .ll-game-play .btn-ll { font-size: 1.1rem; padding: .7rem 1.8rem; }
+body.ll-kiosk .ll-section-title h2 { font-size: 2rem; }

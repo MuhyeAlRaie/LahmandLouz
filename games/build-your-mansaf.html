@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>اصنع منسفك | لحم ولوز</title>
+  <meta name="description" content="رتّب مكونات المنسف الأردني بالترتيب الصحيح واصنع صحنك!">
+  <link rel="icon" type="image/jpeg" href="../assets/logo/lahm-loz-logo.jpg">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-game="build-your-mansaf">
+
+  <header class="ll-header">
+    <div class="ll-header-inner">
+      <a class="ll-brand" href="../index.html">
+        <img class="ll-brand-logo" src="../assets/logo/lahm-loz-logo.jpg" alt="لحم ولوز Lahm &amp; Loz">
+        <span class="ll-brand-name"><b>لحم ولوز</b><span>Lahm &amp; Loz Games</span></span>
+      </a>
+      <div class="ll-header-spacer"></div>
+      <div class="ll-header-actions">
+        <button class="btn-ll btn-ll-icon" id="ll-sound-btn" aria-label="Sound"></button>
+        <button class="btn-ll btn-ll-icon" id="ll-lang-btn" aria-label="Language">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ll-game-main">
+    <div class="ll-game-head">
+      <a class="btn-ll btn-ll-ghost" href="../index.html">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m0 0 6 6m-6-6 6-6"/></svg>
+        <span data-i18n="common.backHome">العودة إلى الألعاب</span>
+      </a>
+      <div class="ll-section-title">
+        <span class="bar"></span>
+        <h1 data-i18n="build.title">اصنع منسفك</h1>
+      </div>
+      <div class="head-spacer"></div>
+      <span class="ll-chip" data-i18n="common.touch">لمس</span>
+    </div>
+
+    <section class="ll-card ll-instructions">
+      <div class="inst-grid">
+        <div class="inst-icon" data-art="card-build"></div>
+        <div>
+          <h2 data-i18n="common.howPlay">كيف ألعب؟</h2>
+          <p data-i18n="build.inst">رتّب مكونات المنسف بالترتيب الصحيح: الأرز، ثم اللحم، ثم مرق الجميد، ثم اللوز، ثم قدّم الصحن.</p>
+          <p style="margin-top:.5rem;font-weight:800;color:var(--ll-almond-deep)" data-i18n="build.dragHint">اسحب المكوّن إلى الصحن أو انقر عليه</p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <button class="btn-ll btn-ll-lg" id="ll-start-btn" data-mode="normal">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="build.normal">الوضع العادي</span>
+          </button>
+          <button class="btn-ll btn-ll-lg btn-ll-almond" id="ll-start-timed" data-mode="timed">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>
+            <span data-i18n="build.timed">تحدي الوقت (60 ثانية)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ll-stage" id="ll-stage">
+      <div class="ll-hud">
+        <div class="ll-hud-item"><div class="label" data-i18n="common.score">النقاط</div><div class="value" id="bd-score">0</div></div>
+        <div class="ll-hud-item" id="bd-time-box" style="display:none"><div class="label" data-i18n="build.timeLeft">الوقت المتبقي</div><div class="value danger" id="bd-time">60</div></div>
+        <div class="ll-hud-item"><div class="label" data-i18n="common.best">الأفضل</div><div class="value almond" id="bd-best">0</div></div>
+        <button class="btn-ll btn-ll-ghost" id="bd-restart" data-i18n="common.restart">إعادة التشغيل</button>
+      </div>
+
+      <div class="ll-build-grid">
+        <div>
+          <div class="ll-build-plate-wrap" id="bd-plate-wrap">
+            <div class="ll-build-plate-art" id="bd-plate-art"></div>
+          </div>
+          <div class="ll-build-steps" id="bd-steps">
+            <span class="step" data-step="1">1</span>
+            <span class="step" data-step="2">2</span>
+            <span class="step" data-step="3">3</span>
+            <span class="step" data-step="4">4</span>
+            <span class="step" data-step="5">5</span>
+          </div>
+          <div class="ll-build-target-hint" id="bd-hint" style="margin-top:.9rem" data-i18n="build.stepRice">أضف الأرز</div>
+        </div>
+        <div class="ll-build-tray">
+          <h3 data-i18n="build.title">اصنع منسفك</h3>
+          <div class="ll-build-items" id="bd-items">
+            <div class="ll-build-item" data-kind="rice" tabindex="0" role="button">
+              <div data-art="rice"></div><div class="iname">الأرز</div>
+            </div>
+            <div class="ll-build-item" data-kind="meat" tabindex="0" role="button">
+              <div data-art="meat"></div><div class="iname">لحم المنسف</div>
+            </div>
+            <div class="ll-build-item" data-kind="jameed" tabindex="0" role="button">
+              <div data-art="jameed"></div><div class="iname">مرق الجميد</div>
+            </div>
+            <div class="ll-build-item" data-kind="almond" tabindex="0" role="button">
+              <div data-art="almond"></div><div class="iname">اللوز</div>
+            </div>
+          </div>
+          <button class="btn-ll btn-ll-lg" id="bd-serve" style="display:none">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h16l-2 7H6l-2-7zM12 4v4m-5-2 1.5 2m8.5-2-1.5 2"/></svg>
+            <span data-i18n="build.serveBtn">قدّم الصحن</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="ll-results" class="ll-results" hidden></section>
+  </main>
+
+  <footer class="ll-footer">
+    <div class="ll-footer-inner">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div class="ll-footer-brand">
+          <img src="../assets/logo/lahm-loz-logo.jpg" alt="لحم ولوز">
+          <div>
+            <b style="color:var(--ll-white)">لحم ولوز — Lahm &amp; Loz</b>
+            <div style="font-size:.82rem;opacity:.85;font-weight:600" data-i18n="footer.branch">الفرع الجديد: الشميساني، عمّان</div>
+          </div>
+        </div>
+        <span style="font-size:.82rem;opacity:.85">© <span data-year>2026</span> · <span data-i18n="footer.madeBy">صُمم بواسطة Vortigate</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="../assets/vendor/qrcode/qrcode.min.js" defer></script>
+  <script src="../js/config.js" defer></script>
+  <script src="../js/games-meta.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/sound.js" defer></script>
+  <script src="../js/illustrations.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/language.js" defer></script>
+  <script src="../js/navigation.js" defer></script>
+  <script src="../js/kiosk.js" defer></script>
+  <script src="../js/sharing.js" defer></script>
+  <script src="../js/leaderboard.js" defer></script>
+  <script src="../js/games/build-your-mansaf.js" defer></script>
+</body>
+</html>

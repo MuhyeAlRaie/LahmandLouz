@@ -1,0 +1,110 @@
+/* ============================================================
+   Lahm & Loz — Animations
+   ============================================================ */
+
+@keyframes llFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes llFloatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+@keyframes llPop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes llDropIn {
+  0% { transform: translateY(-90px) scale(.7); opacity: 0; }
+  60% { transform: translateY(8px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes llMatchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes llWinPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46, 125, 70, .35); }
+  50% { box-shadow: 0 0 0 10px rgba(46, 125, 70, 0); }
+}
+
+@keyframes llPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .55; }
+}
+
+@keyframes llCountPop {
+  0% { transform: scale(.4); opacity: 0; }
+  40% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(.85); opacity: .4; }
+}
+
+@keyframes llToastIn {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes llShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+.ll-shake { animation: llShake .45s ease; }
+
+@keyframes llSteam {
+  0% { transform: translateY(0) scale(1); opacity: .5; }
+  100% { transform: translateY(-46px) scale(1.5); opacity: 0; }
+}
+
+@keyframes llConfettiFall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: .8; }
+}
+
+/* entrance animations for sections */
+.ll-anim-in { animation: llSectionIn .55s cubic-bezier(.2, .8, .3, 1) both; }
+@keyframes llSectionIn {
+  from { transform: translateY(22px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* confetti pieces (created by JS) */
+.ll-confetti {
+  position: fixed;
+  top: 0;
+  width: 12px;
+  height: 18px;
+  border-radius: 3px;
+  z-index: 4000;
+  pointer-events: none;
+  animation: llConfettiFall linear forwards;
+}
+
+/* steam puffs over mansaf */
+.ll-steam-puff {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .85);
+  filter: blur(6px);
+  pointer-events: none;
+  animation: llSteam 1.8s ease-out infinite;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

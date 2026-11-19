@@ -1,0 +1,377 @@
+/* ============================================================
+   Lahm & Loz (لحم ولوز) — Global Design System
+   Brand: Dark Green #164B2A | Almond #D3A064 | Cream #F5F3EE
+          Dark Brown #39291F | White #FFFFFF
+   ============================================================ */
+
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../assets/fonts/cairo-arabic-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../assets/fonts/cairo-latin-var.woff2') format('woff2');
+}
+
+:root {
+  --ll-green: #164B2A;
+  --ll-green-deep: #0E351D;
+  --ll-green-soft: #2E7D46;
+  --ll-almond: #D3A064;
+  --ll-almond-deep: #B98448;
+  --ll-almond-light: #EDD3AF;
+  --ll-cream: #F5F3EE;
+  --ll-cream-dark: #EDE8DE;
+  --ll-brown: #39291F;
+  --ll-brown-soft: #6B5442;
+  --ll-white: #FFFFFF;
+  --ll-red: #C0392B;
+  --ll-gold: #E8B04B;
+
+  --ll-radius-xl: 28px;
+  --ll-radius-lg: 20px;
+  --ll-radius-md: 14px;
+  --ll-radius-sm: 10px;
+  --ll-shadow: 0 10px 30px rgba(57, 41, 31, .12);
+  --ll-shadow-lg: 0 18px 48px rgba(57, 41, 31, .18);
+  --ll-border: 1.5px solid rgba(57, 41, 31, .10);
+  --ll-font: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+
+  --ll-header-h: 72px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ll-font);
+  background:
+    radial-gradient(1200px 500px at 85% -140px, rgba(211, 160, 100, .14), transparent 60%),
+    radial-gradient(900px 480px at 8% 4%, rgba(22, 75, 42, .08), transparent 55%),
+    var(--ll-cream);
+  color: var(--ll-brown);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+main { flex: 1 0 auto; }
+
+h1, h2, h3, h4, h5 { font-weight: 800; letter-spacing: -.2px; }
+a { color: var(--ll-green); }
+::selection { background: var(--ll-almond); color: var(--ll-brown); }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ll-cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--ll-almond); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ll-almond-deep); }
+
+/* ============================================================
+   Header
+   ============================================================ */
+.ll-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  height: var(--ll-header-h);
+  background: rgba(245, 243, 238, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--ll-border);
+}
+.ll-header-inner {
+  max-width: 1320px;
+  margin-inline: auto;
+  height: 100%;
+  padding-inline: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ll-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ll-brown);
+  min-width: 0;
+}
+.ll-brand-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  border: var(--ll-border);
+  background: var(--ll-white);
+  object-fit: contain;
+  padding: 3px;
+  box-shadow: var(--ll-shadow);
+  flex: 0 0 auto;
+}
+.ll-brand-name { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.ll-brand-name b { font-size: 1.05rem; font-weight: 900; color: var(--ll-green); white-space: nowrap; }
+.ll-brand-name span { font-size: .72rem; color: var(--ll-brown-soft); white-space: nowrap; }
+.ll-header-spacer { flex: 1 1 auto; }
+.ll-header-actions { display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
+
+/* ---------- Buttons ---------- */
+.btn-ll {
+  --btn-bg: var(--ll-green);
+  --btn-fg: var(--ll-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: none;
+  border-radius: 999px;
+  padding: .68rem 1.6rem;
+  font-family: var(--ll-font);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  box-shadow: 0 6px 18px rgba(22, 75, 42, .25);
+  min-height: 46px;
+  user-select: none;
+}
+.btn-ll:hover { transform: translateY(-2px); background: var(--ll-green-deep); color: var(--btn-fg); }
+.btn-ll:active { transform: translateY(0) scale(.98); }
+.btn-ll:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+.btn-ll-almond { --btn-bg: var(--ll-almond); --btn-fg: var(--ll-brown); box-shadow: 0 6px 18px rgba(211, 160, 100, .4); }
+.btn-ll-almond:hover { background: var(--ll-almond-deep); color: var(--ll-brown); }
+.btn-ll-outline {
+  --btn-bg: transparent; --btn-fg: var(--ll-green);
+  border: 2px solid var(--ll-green);
+  box-shadow: none;
+}
+.btn-ll-outline:hover { background: var(--ll-green); color: var(--ll-white); }
+.btn-ll-ghost {
+  --btn-bg: rgba(57, 41, 31, .06); --btn-fg: var(--ll-brown);
+  box-shadow: none;
+}
+.btn-ll-ghost:hover { background: rgba(57, 41, 31, .12); }
+.btn-ll-lg { padding: .9rem 2.2rem; font-size: 1.15rem; min-height: 56px; }
+.btn-ll-icon {
+  width: 46px; min-width: 46px;
+  padding: 0;
+  border-radius: 14px;
+  background: var(--ll-white);
+  color: var(--ll-brown);
+  border: var(--ll-border);
+  box-shadow: var(--ll-shadow);
+  font-weight: 900;
+}
+.btn-ll-icon:hover { background: var(--ll-almond-light); color: var(--ll-brown); }
+.btn-ll-icon.active { background: var(--ll-green); color: var(--ll-white); }
+
+/* ---------- Icon inside buttons ---------- */
+.btn-ll svg, .ll-inline-icon { width: 1.2em; height: 1.2em; flex: 0 0 auto; }
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.ll-card {
+  background: var(--ll-white);
+  border-radius: var(--ll-radius-xl);
+  border: var(--ll-border);
+  box-shadow: var(--ll-shadow);
+  padding: 1.6rem;
+}
+.ll-card-green { background: var(--ll-green); color: var(--ll-cream); border: none; }
+.ll-card-cream { background: var(--ll-cream); }
+
+.ll-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: .3rem .85rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 800;
+  background: rgba(22, 75, 42, .08);
+  color: var(--ll-green);
+  border: 1px solid rgba(22, 75, 42, .18);
+}
+.ll-chip-cam { background: rgba(211, 160, 100, .16); color: #8a5f27; border-color: rgba(185, 132, 72, .35); }
+.ll-chip-mem { background: rgba(57, 41, 31, .08); color: var(--ll-brown); border-color: rgba(57, 41, 31, .2); }
+.ll-chip-reflex { background: rgba(192, 57, 43, .1); color: var(--ll-red); border-color: rgba(192, 57, 43, .25); }
+
+.ll-section-title { display: flex; align-items: center; gap: 12px; margin-bottom: .5rem; }
+.ll-section-title .bar { width: 8px; height: 34px; border-radius: 6px; background: linear-gradient(180deg, var(--ll-green), var(--ll-almond)); flex: 0 0 auto; }
+.ll-section-title h2 { margin: 0; font-size: 1.6rem; color: var(--ll-green); }
+
+/* ============================================================
+   Forms
+   ============================================================ */
+.form-control-ll, .form-select-ll {
+  font-family: var(--ll-font);
+  font-weight: 700;
+  color: var(--ll-brown);
+  background-color: var(--ll-white);
+  border: 2px solid rgba(57, 41, 31, .16);
+  border-radius: 14px;
+  padding: .6rem 1rem;
+  min-height: 48px;
+}
+.form-control-ll:focus, .form-select-ll:focus {
+  border-color: var(--ll-green);
+  box-shadow: 0 0 0 .2rem rgba(22, 75, 42, .15);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.ll-footer {
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--ll-green), var(--ll-green-deep));
+  color: var(--ll-cream);
+  margin-top: 3rem;
+}
+.ll-footer-inner {
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: 2.4rem 16px 1.2rem;
+}
+.ll-footer-brand { display: flex; align-items: center; gap: 14px; }
+.ll-footer-brand img {
+  width: 64px; height: 64px; object-fit: contain;
+  background: var(--ll-cream); border-radius: 18px; padding: 4px;
+}
+.ll-footer h5 { color: var(--ll-almond); font-size: 1rem; margin-bottom: .6rem; }
+.ll-footer a { color: var(--ll-cream); text-decoration: none; opacity: .9; }
+.ll-footer a:hover { color: var(--ll-almond); opacity: 1; }
+.ll-social-links { display: flex; gap: 10px; }
+.ll-social-links a {
+  width: 42px; height: 42px; border-radius: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(245, 243, 238, .12);
+  transition: background .2s ease, transform .2s ease;
+}
+.ll-social-links a:hover { background: rgba(211, 160, 100, .3); transform: translateY(-2px); }
+.ll-social-links svg { width: 20px; height: 20px; fill: currentColor; }
+.ll-footer-bottom {
+  border-top: 1px solid rgba(245, 243, 238, .16);
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  font-size: .82rem;
+  opacity: .85;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   HUD (shared in-game)
+   ============================================================ */
+.ll-hud {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ll-hud-item {
+  background: var(--ll-white);
+  border: var(--ll-border);
+  border-radius: var(--ll-radius-md);
+  box-shadow: var(--ll-shadow);
+  padding: .45rem 1.1rem;
+  text-align: center;
+  min-width: 96px;
+}
+.ll-hud-item .label { font-size: .72rem; font-weight: 800; color: var(--ll-brown-soft); letter-spacing: .3px; }
+.ll-hud-item .value { font-size: 1.3rem; font-weight: 900; color: var(--ll-green); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ll-hud-item .value.almond { color: var(--ll-almond-deep); }
+.ll-hud-item .value.danger { color: var(--ll-red); }
+
+/* ---------- Status pill ---------- */
+.ll-status-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  border-radius: 999px; padding: .4rem 1rem;
+  font-size: .82rem; font-weight: 800;
+  background: var(--ll-white); border: var(--ll-border);
+}
+.ll-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ll-brown-soft); }
+.ll-dot.ok { background: var(--ll-green-soft); box-shadow: 0 0 0 4px rgba(46, 125, 70, .18); }
+.ll-dot.warn { background: var(--ll-gold); box-shadow: 0 0 0 4px rgba(232, 176, 75, .2); }
+.ll-dot.err { background: var(--ll-red); box-shadow: 0 0 0 4px rgba(192, 57, 43, .16); }
+.ll-dot.pulse { animation: llPulse 1.4s ease infinite; }
+
+/* ============================================================
+   Kiosk mode (applies to every page)
+   ============================================================ */
+body.ll-kiosk {
+  --ll-header-h: 92px;
+  font-size: 1.12rem;
+}
+body.ll-kiosk .ll-brand-logo { width: 64px; height: 64px; }
+body.ll-kiosk .btn-ll { min-height: 62px; font-size: 1.15rem; padding: .8rem 2rem; }
+body.ll-kiosk .btn-ll-icon { width: 56px; min-width: 56px; height: 56px; }
+body.ll-kiosk .ll-hud-item .value { font-size: 1.7rem; }
+body.ll-kiosk .ll-hud-item .label { font-size: .9rem; }
+body.ll-kiosk .ll-card { border-width: 2.5px; border-color: rgba(57, 41, 31, .22); }
+
+/* kiosk floating exit button */
+.ll-kiosk-exit {
+  position: fixed;
+  inset-inline-start: 14px;
+  bottom: 14px;
+  z-index: 2000;
+  display: none;
+}
+body.ll-kiosk .ll-kiosk-exit { display: inline-flex; }
+
+/* ---------- Toasts ---------- */
+.ll-toast-wrap {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 3000;
+  pointer-events: none;
+}
+.ll-toast {
+  background: var(--ll-brown);
+  color: var(--ll-cream);
+  border-radius: 14px;
+  padding: .7rem 1.4rem;
+  font-weight: 800;
+  font-size: .95rem;
+  box-shadow: var(--ll-shadow-lg);
+  animation: llToastIn .25s ease;
+  max-width: min(92vw, 480px);
+  text-align: center;
+}
+.ll-toast.success { background: var(--ll-green); }
+.ll-toast.error { background: var(--ll-red); }
+
+/* ---------- Utility ---------- */
+.text-ll-green { color: var(--ll-green) !important; }
+.text-ll-almond { color: var(--ll-almond-deep) !important; }
+.text-ll-brown { color: var(--ll-brown) !important; }
+.bg-ll-cream { background: var(--ll-cream) !important; }
+.fw-900 { font-weight: 900 !important; }
+.ll-num { font-variant-numeric: tabular-nums; }
+.ll-hidden { display: none !important; }
+.ll-visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

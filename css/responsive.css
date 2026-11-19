@@ -1,0 +1,75 @@
+/* ============================================================
+   Lahm & Loz — Responsive rules
+   ============================================================ */
+
+@media (max-width: 575.98px) {
+  :root { --ll-header-h: 64px; }
+  .ll-brand-logo { width: 44px; height: 44px; border-radius: 12px; }
+  .ll-brand-name b { font-size: .95rem; }
+  .ll-brand-name span { display: none; }
+  .ll-header-actions { gap: 6px; }
+  .btn-ll { padding: .6rem 1.2rem; font-size: .92rem; }
+  .btn-ll-lg { padding: .75rem 1.6rem; font-size: 1.05rem; }
+  .btn-ll-icon { width: 42px; min-width: 42px; }
+
+  .ll-hero { padding: 2rem 14px 1.5rem; }
+  .ll-hero-sub { font-size: 1rem; }
+  .ll-hero-stats { gap: 10px; }
+  .ll-hero-stat { min-width: 100px; padding: .5rem .9rem; }
+
+  .ll-card { padding: 1.1rem; border-radius: var(--ll-radius-lg); }
+  .ll-games-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ll-game-thumb { height: 150px; }
+
+  .ll-game-head .ll-section-title h1 { font-size: 1.3rem; }
+  .ll-stage { padding: .9rem; border-radius: var(--ll-radius-lg); }
+
+  .ll-xo-cell { min-height: 74px; }
+  .ll-xo-message { font-size: 1.05rem; }
+  .ll-xo-controls .form-select-ll { min-width: 140px; }
+
+  .ll-memory-grid[data-cols="6"] { grid-template-columns: repeat(4, 1fr); }
+  .ll-memory-grid { gap: 8px; }
+
+  .ll-quiz-qcard .qtext { font-size: 1.05rem; }
+  .ll-quiz-timer { width: 54px; height: 54px; font-size: 1.05rem; }
+
+  .ll-reflex-zone { min-height: 300px; }
+  .ll-reflex-zone svg.go-icon { width: 100px; height: 100px; }
+
+  .ll-build-plate-wrap { min-height: 300px; }
+  .ll-build-items { grid-template-columns: 1fr 1fr; }
+  .ll-build-item svg { width: 58px; height: 58px; }
+
+  .ll-cam-preview { width: 88px; }
+
+  .ll-result-hero { padding: 1.4rem 1rem 1.2rem; }
+  .ll-result-hero h2 { font-size: 1.4rem; }
+  .ll-result-hero .big-score { font-size: 2.4rem; }
+  .ll-result-body { padding: 1.1rem; }
+  .ll-name-row { flex-direction: column; }
+
+  .ll-footer-bottom { flex-direction: column; text-align: center; }
+  .ll-footer-inner { padding: 1.8rem 14px 1rem; }
+}
+
+@media (min-width: 1400px) {
+  .ll-memory-grid { max-width: 700px; }
+}
+
+/* Landscape phones (short height) — compact game areas */
+@media (max-height: 480px) and (orientation: landscape) {
+  .ll-hero-art { min-height: 220px; }
+  .ll-reflex-zone { min-height: 240px; }
+  .ll-instructions .inst-icon { display: none; }
+  .ll-instructions .inst-grid { grid-template-columns: 1fr auto; }
+}
+
+/* Large kiosk touchscreens */
+@media (min-width: 1200px) {
+  body.ll-kiosk .ll-games-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1800px) {
+  body.ll-kiosk .ll-games-grid { grid-template-columns: repeat(4, 1fr); }
+  body.ll-kiosk { font-size: 1.25rem; }
+}

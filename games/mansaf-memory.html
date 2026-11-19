@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ذاكرة المنسف | لحم ولوز</title>
+  <meta name="description" content="لعبة ذاكرة ببطاقات الطعام الأردني — طابق الأزواج!">
+  <link rel="icon" type="image/jpeg" href="../assets/logo/lahm-loz-logo.jpg">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-game="mansaf-memory">
+
+  <header class="ll-header">
+    <div class="ll-header-inner">
+      <a class="ll-brand" href="../index.html">
+        <img class="ll-brand-logo" src="../assets/logo/lahm-loz-logo.jpg" alt="لحم ولوز Lahm &amp; Loz">
+        <span class="ll-brand-name"><b>لحم ولوز</b><span>Lahm &amp; Loz Games</span></span>
+      </a>
+      <div class="ll-header-spacer"></div>
+      <div class="ll-header-actions">
+        <button class="btn-ll btn-ll-icon" id="ll-sound-btn" aria-label="Sound"></button>
+        <button class="btn-ll btn-ll-icon" id="ll-lang-btn" aria-label="Language">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ll-game-main">
+    <div class="ll-game-head">
+      <a class="btn-ll btn-ll-ghost" href="../index.html">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m0 0 6 6m-6-6 6-6"/></svg>
+        <span data-i18n="common.backHome">العودة إلى الألعاب</span>
+      </a>
+      <div class="ll-section-title">
+        <span class="bar"></span>
+        <h1 data-i18n="memory.title">ذاكرة المنسف</h1>
+      </div>
+      <div class="head-spacer"></div>
+      <span class="ll-chip ll-chip-mem" data-i18n="common.memory">ذاكرة</span>
+    </div>
+
+    <section class="ll-card ll-instructions">
+      <div class="inst-grid">
+        <div class="inst-icon" data-art="card-memory"></div>
+        <div>
+          <h2 data-i18n="common.howPlay">كيف ألعب؟</h2>
+          <p data-i18n="memory.inst">اقلب البطاقات واعثر على الأزواج المتشابهة بأقل عدد تحركات وأسرع وقت ممكن.</p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <button class="btn-ll btn-ll-lg" data-diff="easy" data-i18n="memory.easy">سهل (8 بطاقات)</button>
+          <button class="btn-ll btn-ll-lg btn-ll-almond" data-diff="medium" data-i18n="memory.medium">متوسط (12 بطاقة)</button>
+          <button class="btn-ll btn-ll-lg btn-ll-outline" data-diff="hard" data-i18n="memory.hard">صعب (16 بطاقة)</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ll-stage" id="ll-stage">
+      <div class="ll-hud">
+        <div class="ll-hud-item"><div class="label" data-i18n="common.moves">التحركات</div><div class="value" id="mm-moves">0</div></div>
+        <div class="ll-hud-item"><div class="label" data-i18n="common.time">الوقت</div><div class="value almond" id="mm-time">0</div></div>
+        <div class="ll-hud-item"><div class="label" data-i18n="memory.pairs">الأزواج</div><div class="value" id="mm-pairs">0</div></div>
+        <div class="ll-hud-item"><div class="label" data-i18n="common.best">الأفضل</div><div class="value" id="mm-best">0</div></div>
+        <button class="btn-ll btn-ll-ghost" id="mm-restart" data-i18n="common.restart">إعادة التشغيل</button>
+      </div>
+
+      <div class="ll-memory-grid" id="mm-grid" data-cols="4"></div>
+    </section>
+
+    <section id="ll-results" class="ll-results" hidden></section>
+  </main>
+
+  <footer class="ll-footer">
+    <div class="ll-footer-inner">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div class="ll-footer-brand">
+          <img src="../assets/logo/lahm-loz-logo.jpg" alt="لحم ولوز">
+          <div>
+            <b style="color:var(--ll-white)">لحم ولوز — Lahm &amp; Loz</b>
+            <div style="font-size:.82rem;opacity:.85;font-weight:600" data-i18n="footer.branch">الفرع الجديد: الشميساني، عمّان</div>
+          </div>
+        </div>
+        <span style="font-size:.82rem;opacity:.85">© <span data-year>2026</span> · <span data-i18n="footer.madeBy">صُمم بواسطة Vortigate</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="../assets/vendor/qrcode/qrcode.min.js" defer></script>
+  <script src="../js/config.js" defer></script>
+  <script src="../js/games-meta.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/sound.js" defer></script>
+  <script src="../js/illustrations.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/language.js" defer></script>
+  <script src="../js/navigation.js" defer></script>
+  <script src="../js/kiosk.js" defer></script>
+  <script src="../js/sharing.js" defer></script>
+  <script src="../js/leaderboard.js" defer></script>
+  <script src="../js/games/mansaf-memory.js" defer></script>
+</body>
+</html>

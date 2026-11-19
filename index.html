@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>لحم ولوز | جاهز للتحدي؟ — ألعاب المنسف التفاعلية</title>
+  <meta name="description" content="منصة الألعاب التفاعلية لمطعم لحم ولوز — ثمانية تحديات عن المنسف الأردني داخل المطعم ومن هاتفك.">
+  <link rel="icon" type="image/jpeg" href="assets/logo/lahm-loz-logo.jpg">
+  <link rel="apple-touch-icon" href="assets/logo/lahm-loz-logo.jpg">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/homepage.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ================= Header ================= -->
+  <header class="ll-header">
+    <div class="ll-header-inner">
+      <a class="ll-brand" href="index.html">
+        <img class="ll-brand-logo" src="assets/logo/lahm-loz-logo.jpg" alt="لحم ولوز Lahm &amp; Loz">
+        <span class="ll-brand-name">
+          <b>لحم ولوز</b>
+          <span>Lahm &amp; Loz — Interactive Games</span>
+        </span>
+      </a>
+      <div class="ll-header-spacer"></div>
+      <div class="ll-header-actions">
+        <button class="btn-ll btn-ll-icon" data-kiosk-toggle data-i18n-aria="common.kioskEnter" title="Kiosk mode">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </button>
+        <button class="btn-ll btn-ll-icon" id="ll-sound-btn" aria-label="Sound"></button>
+        <button class="btn-ll btn-ll-icon" id="ll-lang-btn" aria-label="Language">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="ll-hero">
+      <div class="ll-hero-grid">
+        <div>
+          <span class="ll-hero-badge">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2 15 8l6 .8-4.4 4.2 1.1 6-5.7-3-5.7 3 1.1-6L3 8.8 9 8z"/></svg>
+            <span data-i18n="home.badge">تجربة تفاعلية — 8 ألعاب</span>
+          </span>
+          <h1><span data-i18n="home.heroTitle">جاهز للتحدي؟</span></h1>
+          <p class="ll-hero-sub" data-i18n="home.heroSub">اختبر مهاراتك، تحدى أصحابك، واكتشف إذا كنت تستحق لقب شيخ المنسف!</p>
+          <div class="ll-hero-ctas">
+            <a class="btn-ll btn-ll-lg" href="#games" data-scroll-to="#games">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <span data-i18n="home.ctaStart">ابدأ التحدي</span>
+            </a>
+            <button class="btn-ll btn-ll-lg btn-ll-outline" data-kiosk-toggle>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <span data-i18n="home.ctaKiosk">وضع الشاشة الكبيرة</span>
+            </button>
+          </div>
+          <div class="ll-hero-stats">
+            <div class="ll-hero-stat"><b data-i18n="home.statGamesN">8</b><span data-i18n="home.statGames">لعبة تفاعلية</span></div>
+            <div class="ll-hero-stat"><b data-i18n="home.statCamN">3</b><span data-i18n="home.statCam">تجارب كاميرا</span></div>
+            <div class="ll-hero-stat"><b data-i18n="home.statFreeN">100%</b><span data-i18n="home.statFree">مجاناً تماماً</span></div>
+          </div>
+        </div>
+        <div class="ll-hero-art" aria-hidden="true">
+          <div class="plate" data-art="mansaf"></div>
+          <div class="orbit o1" data-art="meat"></div>
+          <div class="orbit o2" data-art="almond"></div>
+          <div class="orbit o3" data-art="golden-almond"></div>
+          <div class="orbit o4" data-art="jameed-ball"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Challenge banner (from shared link) ================= -->
+    <section class="ll-challenge-banner" id="ll-challenge-banner" hidden></section>
+
+    <!-- ================= Games grid ================= -->
+    <section class="ll-games-section" id="games">
+      <div class="ll-section-title">
+        <span class="bar"></span>
+        <h2 data-i18n="home.gamesTitle">اختر لعبتك</h2>
+      </div>
+      <p style="color:var(--ll-brown-soft);font-weight:600;margin-bottom:1.4rem" data-i18n="home.gamesSub">ثمانية تحديات مستوحاة من المطبخ الأردني الأصيل</p>
+      <div class="ll-games-grid" id="ll-games-grid"><!-- cards render via JS --></div>
+    </section>
+
+    <!-- ================= About ================= -->
+    <section class="ll-about">
+      <div class="ll-section-title">
+        <span class="bar"></span>
+        <h2 data-i18n="home.aboutTitle">عن التجربة</h2>
+      </div>
+      <div class="ll-about-grid">
+        <div class="ll-card ll-about-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#164B2A" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/><circle cx="12" cy="11" r="3.4"/><path d="M12 7.6v1m0 4.8v1M8.6 11h1m4.8 0h1"/></svg>
+          </div>
+          <h3 data-i18n="home.about1T">العب داخل المطعم</h3>
+          <p data-i18n="home.about1B">شاشات لمس تفاعلية بانتظارك في فرعنا الجديد بالشميساني.</p>
+        </div>
+        <div class="ll-card ll-about-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#164B2A" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><rect x="8" y="8" width="8" height="8" rx="1.6"/><path d="M8 3v3M16 3v3M8 18v3M16 18v3M3 8h3M3 16h3M18 8h3M18 16h3"/></svg>
+          </div>
+          <h3 data-i18n="home.about2T">العب من هاتفك</h3>
+          <p data-i18n="home.about2B">امسح رمز QR وابدأ التحدي فوراً من أي مكان.</p>
+        </div>
+        <div class="ll-card ll-about-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#164B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M12 15V3m0 0 4 4m-4-4-4 4"/></svg>
+          </div>
+          <h3 data-i18n="home.about3T">تحدى أصحابك</h3>
+          <p data-i18n="home.about3B">شارك بطاقة نتيجتك وادّعِ لقب شيخ المنسف.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Branch CTA ================= -->
+    <section class="ll-branch">
+      <div class="ll-branch-inner">
+        <div>
+          <h2 data-i18n="home.branchTitle">زورونا في فرع الشميساني</h2>
+          <p data-i18n="home.branchText">طاولة الضيافة الأردنية بانتظاركم في فرعنا الجديد. جرّب الألعاب، خذ صورة لبطاقة نتيجتك، ثم استمتع بمنسف على الطريقة الأصيلة.</p>
+          <p class="ll-branch-pin" style="margin-top:.7rem">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align:-2px"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+            <span data-i18n="footer.branch">الفرع الجديد: الشميساني، عمّان</span>
+          </p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <a class="btn-ll btn-ll-almond btn-ll-lg" href="#" data-social="instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/></svg>
+            <span data-i18n="home.branchCta">تابعنا على السوشال ميديا</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Optional promo block (configured in js/config.js) ================= -->
+    <section class="ll-games-section" data-promo hidden>
+      <div class="ll-card" style="border:2px dashed var(--ll-almond);text-align:center">
+        <h3 class="text-ll-green" data-promo-msg style="margin-bottom:.3rem"></h3>
+        <p style="font-weight:800;font-size:1.2rem;color:var(--ll-almond-deep)" data-promo-offer></p>
+        <p style="font-weight:700;color:var(--ll-brown-soft)">
+          <span data-i18n="home.promoCode">كود العرض:</span>
+          <code style="background:var(--ll-cream);padding:.2rem .7rem;border-radius:8px;font-weight:900;font-size:1.05rem" data-promo-code></code>
+        </p>
+        <a class="btn-ll" data-promo-cta href="#"></a>
+      </div>
+    </section>
+
+    <!-- ================= Leaderboard + QR ================= -->
+    <section class="ll-lb-section">
+      <div class="ll-lb-grid">
+        <div class="ll-card">
+          <div class="ll-section-title">
+            <span class="bar"></span>
+            <h2 data-i18n="home.lbTitle">أفضل نتائجك</h2>
+          </div>
+          <span class="ll-chip" data-i18n="home.lbDevice">على هذا الجهاز</span>
+          <div id="ll-lb-body" style="margin-top:1rem"></div>
+          <h5 style="margin-top:1.3rem;color:var(--ll-brown)" data-i18n="home.historyTitle">آخر النشاطات</h5>
+          <ul class="ll-history-list" id="ll-lb-history"></ul>
+          <p class="ll-lb-note" data-i18n="home.lbNote">هذه السجلات محفوظة على هذا الجهاز فقط ولا تُشارك بين الأجهزة. لوحة نتائج عالمية على مستوى كل الأجهزة قادمة قريباً.</p>
+        </div>
+        <div class="ll-card ll-qr-card">
+          <h3 class="text-ll-green" data-i18n="home.qrTitle">العب من هاتفك</h3>
+          <p style="color:var(--ll-brown-soft);font-weight:600;font-size:.9rem;margin:0" data-i18n="home.qrSub">امسح الرمز لفتح الألعاب على هاتفك</p>
+          <div class="qr-holder" id="ll-qr-holder"></div>
+          <div class="url" id="ll-qr-url"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Kiosk note ================= -->
+    <section class="ll-kiosk-note">
+      <div class="inner">
+        <div>
+          <h3 class="text-ll-green" style="font-size:1.1rem" data-i18n="home.kioskTitle">شاشة المطعم الكبيرة؟</h3>
+          <p data-i18n="home.kioskText">فعّل وضع الكشك لأزرار أكبر وتجربة لمس مبسطة داخل المطعم.</p>
+        </div>
+        <button class="btn-ll" data-kiosk-toggle data-i18n="common.kioskEnter">وضع الكشك</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="ll-footer">
+    <div class="ll-footer-inner">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="ll-footer-brand">
+            <img src="assets/logo/lahm-loz-logo.jpg" alt="لحم ولوز">
+            <div>
+              <b style="font-size:1.1rem;color:var(--ll-white)">لحم ولوز — Lahm &amp; Loz</b>
+              <div style="font-size:.82rem;opacity:.85;font-weight:600" data-i18n="footer.about">منصة الترفيه التفاعلية الرسمية لمطعم لحم ولوز — منسف أردني أصيل.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 data-i18n="footer.links">روابط سريعة</h5>
+          <a href="#games" data-scroll-to="#games" style="display:block;margin-bottom:.4rem" data-i18n="home.gamesTitle">اختر لعبتك</a>
+          <a href="#games" data-scroll-to="#games" style="display:block;margin-bottom:.4rem" data-i18n="home.lbTitle">أفضل نتائجك</a>
+          <a href="#games" data-scroll-to="#games" style="display:block" data-i18n="home.qrTitle">العب من هاتفك</a>
+        </div>
+        <div class="col-lg-5 col-md-12">
+          <h5 data-i18n="footer.follow">تابعنا</h5>
+          <div class="ll-social-links">
+            <a href="#" data-social="instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.6-3.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg>
+            </a>
+            <a href="#" data-social="facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.3-.04-1.3-.13-2.45-.13-2.4 0-4.05 1.47-4.05 4.17v2.26H7.5V14h2.7v8h3.3z"/></svg>
+            </a>
+            <a href="#" data-social="tiktok" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M16.6 3c.35 1.9 1.6 3.2 3.9 3.4v2.7c-1.4.1-2.7-.3-3.9-1.1v5.5c0 3.6-2.5 5.9-5.6 5.9-2.9 0-5.3-2.3-5.3-5.3 0-3.4 3.1-5.8 6.4-5.2v2.8c-1.6-.5-3.4.5-3.4 2.4 0 1.5 1.2 2.5 2.5 2.5 1.5 0 2.6-1.1 2.6-3V3h2.8z"/></svg>
+            </a>
+            <a href="#" data-social="whatsapp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6a12 12 0 0 1-4.6-4c-.5-.8-.9-1.7-.9-2.6 0-.9.5-1.4.7-1.6.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .5.4l.7 1.8c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.6 1 1.4 1.9 2.4 2.5.3.2.5.2.7-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5s0 .8-.4 1.3z"/></svg>
+          </a>
+          </div>
+          <p style="margin-top:.9rem;font-size:.85rem;font-weight:700;opacity:.9">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:-2px"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+            <span data-i18n="footer.branch">الفرع الجديد: الشميساني، عمّان</span>
+          </p>
+        </div>
+      </div>
+      <div class="ll-footer-bottom">
+        <span data-i18n="footer.rights">لحم ولوز — جميع الحقوق محفوظة</span>
+        <span>© <span data-year>2026</span> · <span data-i18n="footer.madeBy">صُمم بواسطة Vortigate</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= Scripts ================= -->
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/qrcode/qrcode.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/games-meta.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/sound.js" defer></script>
+  <script src="js/illustrations.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/language.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/kiosk.js" defer></script>
+  <script src="js/sharing.js" defer></script>
+  <script src="js/leaderboard.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
